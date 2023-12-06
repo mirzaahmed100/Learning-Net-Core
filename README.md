@@ -70,5 +70,36 @@ if we have Repositories who should be used in controller we will have Interfaces
 Now question is Which interface will implement which Repository it will be define in DI Container in Service Lifetime
 Now reason of Dependecny Injecton to be used is to Implement IOT
 
-////
+
 Dependency injection (DI) is one form of IoC where we delegate the responsibility of creating and injecting components' dependencies to some other party outside of the components themselves.
+
+
+
+#Stack & Heap
+Stack is Memory allocation and it is not flexible as Heap. Heap provides dynamic Memory allocation and its flexible and uses memory address it doesnt have object name it has address of variables 
+
+When we have int value it is stored in Stack if it is in Struct and if we have Object it is stored in Heap.
+
+#Use Case of Stack & Heap Explanation
+Struct Student{
+Public Class age;
+Public Class marks;
+
+
+}
+
+Function main Program{
+
+Student Std = new OOP.Student();
+Std.age = 20;
+std.mark=100;
+
+Student std2 = std;
+Student std3 = std;
+
+}
+
+From all values will be copied in std2 and std3. So in Stack it will acquire memory with Blocks and it could be StackOverflowed if like this objects and if we change value of std.age=25 it will not change value of other object’s column so its better to use Class and Objects
+
+
+Now in Class it will store in Heap by Refrence Heap doesnt have object name will be in Stack and Object will be in Heap it will have Memory Address to stack as start with std it will be in stack and its memory will be in stack
