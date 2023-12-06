@@ -103,3 +103,9 @@ From all values will be copied in std2 and std3. So in Stack it will acquire mem
 
 
 Now in Class it will store in Heap by Refrence Heap doesnt have object name will be in Stack and Object will be in Heap it will have Memory Address to stack as start with std it will be in stack and its memory will be in stack
+
+
+#DTO , Model and Entity
+Dto will be in WebLayer Model will be in Service Layer and Entity will be in DatabaseLayer
+Difference between Model and Entity is that for Exammple we have Person details so in Model will be PersonID, FirstName,Lastname,FullName and Age so in Entity we will have less coloumns in Age Column it will be DOB as for Models which is in Service Layer we have to do BuisnessLogics for model also to get the Age by function also for FullName also will not be in Entity as we and it will be in Models as we will concatinate FirstName and LastName for FullName in BuisnessLogic using Model
+In DTO Service layer is sending whole information from Entity To WebLayer(DTO) They also have less coloumns so that in Client app we dont need FirstName and LastName it will be Fullname as in Service Layer Models are using BuisnessLogics so DTO Coulmns will be less
