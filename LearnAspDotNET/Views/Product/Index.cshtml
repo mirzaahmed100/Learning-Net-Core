@@ -1,0 +1,61 @@
+﻿@using Ecommerce.Domain.Entities;
+@model List<Product>
+
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<form method="get">
+    <div class="input-group">
+        <input name="SearchString" class="form-control" type="search">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+
+
+<div id="productList"></div>
+
+    <div class="container">
+        <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Product List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Product" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-file-earmark-plus"></i> Create New Product
+            </a> 
+        </div>
+
+        </div>
+
+<table class="table table-bordered table-striped">
+    <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+
+         <th>
+            Actions
+        </th>
+    </tr>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+        <tr>
+            <td>@obj.Name</td>
+            <td>@obj.Description</td>
+              <td>@obj.Price</td>
+                   
+            <td>
+                </tr>
+            }
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
