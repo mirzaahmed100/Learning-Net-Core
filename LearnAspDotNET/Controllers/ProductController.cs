@@ -31,7 +31,9 @@ namespace ProductDisplay.Controllers
             }
             return View(products);
         }
-        
+
+       
+
 
         //public IActionResult Create()
         //{
@@ -42,5 +44,18 @@ namespace ProductDisplay.Controllers
         //{
 
         //}
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var product = _dbContext.Product.FirstOrDefault(p => p.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
     }
 }
+
