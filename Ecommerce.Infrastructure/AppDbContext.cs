@@ -10,37 +10,21 @@ namespace Ecommerce.Infrastructure
 
         }
         public DbSet<Product> Product { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Manufacturer> Manufacturer { get; set; }
+        public DbSet<Category> Category { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>().HasData(
-              new Product
-              {
-                  Id = 1,
-                  Name = "Laptop",
+            //Fluent Api Relationship
+            modelBuilder.Entity<Product>()
+           .HasOne(p => p.ProductInventory)
+           .WithOne(pi => pi.Product)
+           .HasForeignKey<ProductInventory>(pi => pi.ProductId);
 
-                  Description = "Dell Laptop.",
-                  Price = 10000
-              },
-                new Product
-                {
-                    Id = 2,
-                    Name = "Mobile",
-
-                    Description = "Samsung Mobile.",
-                    Price = 10000
-                },
-
-                  new Product
-                  {
-                      Id = 3,
-                      Name = "Tablet",
-
-                      Description = "Iphone Tab.",
-                      Price = 10000
-                  }
-
-        );
+            base.OnModelCreating(modelBuilder);  
         }
     }
 }

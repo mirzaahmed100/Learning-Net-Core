@@ -1,4 +1,8 @@
+using Ecommerce.BLL.IUnitOfWork;
+using Ecommerce.BLL.ProductService;
 using Ecommerce.Infrastructure;
+using Ecommerce.Infrastructure.Persistense;
+using Ecommerce.Infrastructure.Persistense.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
+builder.Services.AddScoped<IProductService, ProductService>();
+//builder.Services.AddScoped<IProductService, ProductService>();
+//builder.Services.AddScoped < IRepository, ProducerRepository();
+
+
+
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //builder.Services.AddSwaggerGen();builder.Services.AddEndpointsApiExplorer();
@@ -30,7 +41,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Product}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=Home}/{id?}");
 
 app.Run();
 

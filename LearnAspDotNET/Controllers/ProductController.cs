@@ -10,52 +10,60 @@ namespace ProductDisplay.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly AppDbContext _dbContext;
+        private readonly IProductService _productService;
         //private readonly ProductService _productService;
-        public ProductController(AppDbContext db)
+        public ProductController(IProductService productService)
         {
-            _dbContext = db;
+            _productService = productService;
         }
    
-       
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> Index([FromQuery] string SearchString)
-        {
-            var products = await _dbContext.Product.ToListAsync();
-            if(!string.IsNullOrEmpty(SearchString))
-            {
-                SearchString = SearchString.ToLower();
-                products = products.Where(p =>
-                    p.Name.ToLower().Contains(SearchString) ||
-                    p.Description.ToLower().Contains(SearchString)).ToList();
-            }
-            return View(products);
-        }
+
 
        
-
-
-        //public IActionResult Create()
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Product>>> Index([FromQuery] string SearchString)
         //{
-        //    return View();
+        //    var products = await _dbContext.Product.ToListAsync();
+        //    if(!string.IsNullOrEmpty(SearchString))
+        //    {
+        //        SearchString = SearchString.ToLower();
+        //        products = products.Where(p =>
+        //            p.Name.ToLower().Contains(SearchString) ||
+        //            p.Description.ToLower().Contains(SearchString)).ToList();
+        //    }
+        //    return View(products);
         //}
-        //[HttpPost]
-        //public IActionResult Create(Product prod)
-        //{
 
+
+
+
+        [HttpPost]
+        public IActionResult Search(string searchString)
+        {
+            
+            return RedirectToAction("Search", "Search", new { searchString = searchString });
+        }
+
+        //[HttpGet]
+        //public IActionResult Details(int id)
+        //{
+        //    var product = _dbContext.Product.FirstOrDefault(p => p.Id == id);
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(product);
         //}
 
         [HttpGet]
-        public IActionResult Details(int id)
+        public IActionResult Home()
         {
-            var product = _dbContext.Product.FirstOrDefault(p => p.Id == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return View(product);
+            return View();
         }
+
+
+
     }
 }
 

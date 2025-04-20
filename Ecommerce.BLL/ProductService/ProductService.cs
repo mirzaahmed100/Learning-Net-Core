@@ -1,32 +1,42 @@
-﻿using Ecommerce.Domain.Entities;
-using Ecommerce.Infrastructure;
+﻿using Ecommerce.BLL.IUnitOfWork;
+using Ecommerce.Domain.Entities;
 
 namespace Ecommerce.BLL.ProductService
 {
     public class ProductService : IProductService
     {
-        private readonly AppDbContext context;
+        private readonly IUnitOfWork.IUnitOfWork _unitOfWork;
+         private readonly IRepository<Product> _prodRepository;
 
 
-       public ProductService(AppDbContext _context)
+        public ProductService(IUnitOfWork.IUnitOfWork unitOfWork)
         {
-           context = _context;
+            _unitOfWork = unitOfWork;
+            _prodRepository = (IRepository<Product>?)_unitOfWork.GetRepository<Product>();
 
         }
         public void AddAsync(Product prod)
         {
-            //throw new NotImplementedException();
+            _prodRepository.Add(prod);
+            _unitOfWork.Commit();
         }
 
-        public Task<int> DeleteAsync(int prodId)
+        public async Task<int> DeleteAsync(int prodId)
         {
-            throw new NotImplementedException();
+            var numberOfRow = await _prodRepository.Delete(prodId);
+            if (numberOfRow < 0)
+            {
+                _unitOfWork.Commit();
+            }
+            return numberOfRow;
         }
 
         public Task<List<Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return _prodRepository.GetAll();
         }
+
+        
 
         //public Task<List<Product>> GetAllAsync()
         //{
@@ -35,12 +45,16 @@ namespace Ecommerce.BLL.ProductService
 
         public Task<Product?> GetByID(int prodId)
         {
-            throw new NotImplementedException();
+            return _prodRepository.GetById(prodId);
         }
 
-        public Product Update(Product card)
+        
+
+        public Product Update(Product prod)
         {
-            throw new NotImplementedException();
+            _prodRepository.Update(prod);
+            _unitOfWork.Commit();
+            return prod;
         }
     }
 }
