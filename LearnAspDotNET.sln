@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnAspDotNET", "LearnAspDotNET\LearnAspDotNET.csproj", "{8D19D344-292B-46BC-8900-644C92BAB8C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnAspDotNET", "LearnAspDotNET\LearnAspDotNET.csproj", "{8D19D344-292B-46BC-8900-644C92BAB8C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Infrastructure", "Ecommerce.Infrastructure\Ecommerce.Infrastructure.csproj", "{D0C51E37-5968-41B1-99E7-0326D151ED54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Domain", "Ecommerce.Domain\Ecommerce.Domain.csproj", "{7A020272-CA7C-42FC-9036-0DB7B735C69D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.BLL", "Ecommerce.BLL\Ecommerce.BLL.csproj", "{C26370E5-563F-4768-8644-6D0B52EA7EC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{8D19D344-292B-46BC-8900-644C92BAB8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D19D344-292B-46BC-8900-644C92BAB8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D19D344-292B-46BC-8900-644C92BAB8C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0C51E37-5968-41B1-99E7-0326D151ED54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0C51E37-5968-41B1-99E7-0326D151ED54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0C51E37-5968-41B1-99E7-0326D151ED54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0C51E37-5968-41B1-99E7-0326D151ED54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A020272-CA7C-42FC-9036-0DB7B735C69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A020272-CA7C-42FC-9036-0DB7B735C69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A020272-CA7C-42FC-9036-0DB7B735C69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A020272-CA7C-42FC-9036-0DB7B735C69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C26370E5-563F-4768-8644-6D0B52EA7EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C26370E5-563F-4768-8644-6D0B52EA7EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C26370E5-563F-4768-8644-6D0B52EA7EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C26370E5-563F-4768-8644-6D0B52EA7EC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

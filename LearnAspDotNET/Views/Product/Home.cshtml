@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Search Box</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%; /* Ensure the body and html take the full height */
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            place-items: center; /* Centers both horizontally and vertically */
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="input-group">
+            <form asp-controller="Product" asp-action="Search" method="post" class="form-inline">
+                <input name="SearchString" class="form-control mr-2" type="search" placeholder="Search" tabindex="1" style="
+                       width:350px" />
+                <button class="btn btn-primary" type="submit">Search</button>
+      
+            </form>
+            
+        </div>
+    </div>
+
+ @*   <form asp-controller="Home" asp-action="Search" method="post">
+    <input type="text" name="searchString" placeholder="Search" />
+    <button type="submit">Search</button>
+</form> *@
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
